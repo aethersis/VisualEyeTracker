@@ -1,0 +1,32 @@
+{
+  "hyperparameters": {
+    "model_type": "resnet",
+    "version": 1.0,
+    "input_shape": [
+      1,
+      240,
+      320
+    ],
+    "initial_filters": 16,
+    "num_outputs": 2
+  },
+  "augmentations": {
+    "target_size": [
+      240,
+      320
+    ],
+    "p_hflip": 0.5,
+    "p_vflip": 0.5,
+    "p_shift": 1.0,
+    "max_translate": [
+      0.2,
+      0.2
+    ],
+    "p_brightness": 1.0,
+    "brightness_factor": 0.4,
+    "p_contrast": 1.0,
+    "contrast_factor": 0.4,
+    "p_gamma": 1.0,
+    "gamma": 0.2
+  }
+}

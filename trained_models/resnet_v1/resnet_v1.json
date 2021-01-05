@@ -1,0 +1,11 @@
+{
+  "model_type": "resnet",
+  "version": 1.0,
+  "input_shape": [
+    1,
+    240,
+    320
+  ],
+  "initial_filters": 16,
+  "num_outputs": 2
+}

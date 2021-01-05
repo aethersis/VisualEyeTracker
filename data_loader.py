@@ -64,7 +64,9 @@ class Augmentations:
         return image, label
 
     @staticmethod
-    def transform(image, label, augmentations_config=default_augmentations_config):
+    def transform(image, label, augmentations_config=None):
+        if augmentations_config is None:
+            augmentations_config = Augmentations.default_augmentations_config
         image, label = Augmentations.scale_label(image, label, augmentations_config["target_size"])
 
         if random.random() < augmentations_config["p_hflip"]:

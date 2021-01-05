@@ -114,7 +114,7 @@ class PupilsDatasetLoader(Dataset):
         else:
             self._augmentations_config = augmentations_config
 
-        # Find all relevant image files recursively (supports different sub-datasets in subfolders)
+        self._device = device
         self._image_paths = sorted(list(dataset_folder_path.rglob("*.jpg")))
 
     def __len__(self):
@@ -126,7 +126,7 @@ class PupilsDatasetLoader(Dataset):
 
         image = cv2.imread(str(image_path), cv2.IMREAD_COLOR)
         image = image.transpose((2, 0, 1))  # width, height, channels to channels, height, width used by PyTorch
-        image = torch.tensor(image).to(torch.device("cuda"))
+        image = torch.tensor(image).to(self._device)
 
         with open(labels_path, "r") as fp:
             label = fp.readline().strip().split(',')

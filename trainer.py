@@ -171,7 +171,7 @@ if __name__ == '__main__':
     #preview_images(train_loader)
 
     # create model
-    model = ResNetModel().to(device)
+    model = ResNetModel(training_config['hyperparameters']).to(device)
 
     loss_func = nn.SmoothL1Loss(reduction="sum",)
     optimizer = optim.Adam(model.parameters(), lr=1e-4)

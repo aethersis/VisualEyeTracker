@@ -51,7 +51,7 @@ def loss_epoch(model, loss_function, data_loader, optimizer=None):
     for xb, yb in data_loader:
         i += 1
         yb = yb.type(torch.float32).to(device)
-        output = model(xb.to(device))
+        output = model(xb)
         loss_b = loss_batch(loss_function, output, yb, optimizer)
         running_loss += loss_b
 
@@ -178,7 +178,7 @@ if __name__ == '__main__':
     lr_scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.5, patience=200, verbose=True)
 
     params_train = {
-        "num_epochs": 600,
+        "num_epochs": 1000,
         "optimizer": optimizer,
         "loss_func": loss_func,
         "train_dl": train_loader,
